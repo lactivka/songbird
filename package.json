@@ -1,0 +1,49 @@
+{
+  "name": "songbird",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack-dev-server --mode development",
+    "build": "webpack --mode production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lactivka/songbird.git"
+  },
+  "author": "Oksana Stepanenko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lactivka/songbird/issues"
+  },
+  "homepage": "https://github.com/lactivka/songbird#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.1.0",
+    "@babel/core": "^7.1.0",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.2",
+    "css-loader": "^1.0.0",
+    "eslint": "^7.6.0",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-react": "^7.20.5",
+    "eslint-plugin-react-hooks": "^4.0.8",
+    "file-loader": "^6.0.0",
+    "html-webpack-plugin": "^4.3.0",
+    "sass": "^1.26.10",
+    "sass-loader": "^7.3.1",
+    "style-loader": "^0.23.0",
+    "webpack": "^4.19.1",
+    "webpack-cli": "^3.1.1",
+    "webpack-dev-server": "^3.1.8"
+  },
+  "dependencies": {
+    "classnames": "^2.2.6",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
+    "react-hot-loader": "^4.3.11",
+    "react-player": "^2.6.0"
+  }
+}
