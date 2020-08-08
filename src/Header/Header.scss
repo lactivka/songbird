@@ -1,0 +1,17 @@
+.category-list {
+  & .category-item {
+    list-style: none;
+    padding: 5px;
+    flex: auto;
+    background-color: #2b5876;
+    text-align: center;
+    &:first-child {
+      border-top-left-radius: 0.25rem;
+      border-bottom-left-radius: 0.25rem;
+    }
+    &:last-child {
+      border-top-right-radius: 0.25rem;
+      border-bottom-right-radius: 0.25rem;
+    }
+  }
+}

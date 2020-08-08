@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --mode development",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "lint": "eslint"
   },
   "repository": {
     "type": "git",
@@ -35,15 +36,16 @@
     "sass": "^1.26.10",
     "sass-loader": "^7.3.1",
     "style-loader": "^0.23.0",
-    "webpack": "^4.19.1",
+    "webpack": "^4.44.1",
     "webpack-cli": "^3.1.1",
-    "webpack-dev-server": "^3.1.8"
+    "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
     "classnames": "^2.2.6",
-    "react": "^16.5.2",
-    "react-dom": "^16.5.2",
-    "react-hot-loader": "^4.3.11",
+    "prop-types": "^15.7.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-hot-loader": "^4.12.21",
     "react-player": "^2.6.0"
   }
 }
