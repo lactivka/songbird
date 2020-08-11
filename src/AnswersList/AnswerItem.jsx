@@ -6,7 +6,7 @@ import './AnswersList.scss';
 
 const classNames = require('classnames');
 
-const AnswerItem = ({ idx }) => {
+const AnswerItem = ({ name, clickHandler, correctItem }) => {
   const [isCorrect, setIsCorrect] = useState(false);
   const [isWrong, setIsWrong] = useState(false);
 
@@ -16,20 +16,27 @@ const AnswerItem = ({ idx }) => {
     'wrong-item': isWrong,
   });
 
-  const itemClickHandler = () => setIsWrong(true);
+  const itemClickHandler = (event) => {
+    if (event.target.id === correctItem) setIsCorrect(true);
+    else setIsWrong(true);
+    clickHandler(event);
+  };
 
   return (
     <li
     className="answer-item p-3"
+    id={name}
     onClick={itemClickHandler}>
       <span className={itemClass}></span>
-      Answer {idx}
+      {name}
     </li>
   );
 };
 
 AnswerItem.propTypes = {
-  idx: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  clickHandler: PropTypes.func.isRequired,
+  correctItem: PropTypes.string.isRequired,
 };
 
 export default hot(module)(AnswerItem);
