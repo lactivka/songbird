@@ -3,10 +3,11 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { hot } from 'react-hot-loader';
 import './AnswersList.scss';
+import classNames from 'classnames';
 
-const classNames = require('classnames');
-
-const AnswerItem = ({ name, clickHandler, correctItem }) => {
+const AnswerItem = ({
+  name, clickHandler, correctItem, isCorrectAnswer, makeSelected,
+}) => {
   const [isCorrect, setIsCorrect] = useState(false);
   const [isWrong, setIsWrong] = useState(false);
 
@@ -17,9 +18,12 @@ const AnswerItem = ({ name, clickHandler, correctItem }) => {
   });
 
   const itemClickHandler = (event) => {
-    if (event.target.id === correctItem) setIsCorrect(true);
-    else setIsWrong(true);
-    clickHandler(event);
+    if (!isCorrectAnswer && !isCorrect && !isWrong) {
+      if (event.target.id === correctItem) setIsCorrect(true);
+      else setIsWrong(true);
+      clickHandler(event);
+    }
+    makeSelected(event);
   };
 
   return (
@@ -37,6 +41,8 @@ AnswerItem.propTypes = {
   name: PropTypes.string.isRequired,
   clickHandler: PropTypes.func.isRequired,
   correctItem: PropTypes.string.isRequired,
+  isCorrectAnswer: PropTypes.bool.isRequired,
+  makeSelected: PropTypes.func.isRequired,
 };
 
 export default hot(module)(AnswerItem);

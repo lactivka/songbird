@@ -9,8 +9,8 @@ const QuestionBlock = ({ correctData, isCorrectAnswer }) => (
     <img className="image-block" src={(isCorrectAnswer && correctData.image) || defaultImg} alt={correctData.name}></img>
     <div className="content-block d-flex flex-column justify-content-around">
       {(isCorrectAnswer
-        && <h3>{correctData.name}</h3>)
-        || <h3>******</h3>
+        && <h3 className="pb-2">{correctData.name}</h3>)
+        || <h3 className="pb-2">******</h3>
         }
       <audio src={correctData.audio} controls className="w-auto"></audio>
     </div>
