@@ -3,13 +3,13 @@ import { hot } from 'react-hot-loader';
 import PropTypes from 'prop-types';
 import ReactAudioPlayer from 'react-audio-player';
 import './ItemDescription.scss';
-import { data } from '../InstrumentsData';
+
+// import maracasAudio from  `../assets/InstrumentSoundData/audio/${url}`;
 
 const ItemDescription = ({ isSelectedAnswer, selectedData }) => {
 // const url = '../assets/InstrumentSoundData/audio/accordion.mp3';
 // const audio = new Audio(url);
 // const clickHandler = () => audio.play();
-  // const currInstrument = data[0];
 
   return (
     <div className="col-md-6">
