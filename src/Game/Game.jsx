@@ -7,6 +7,7 @@ import AnswersList from '../AnswersList/AnswersList.jsx';
 import ItemDescription from '../ItemDescription/ItemDescription.jsx';
 import MainButton from '../MainButton/MainButton.jsx';
 import { data } from '../InstrumentsData';
+import CongratPage from '../CongratPage/CongratPage.jsx';
 
 const Game = () => {
   const [currCategory, setCurrCategory] = useState(1);
@@ -15,6 +16,7 @@ const Game = () => {
   const [isSelectedAnswer, setIsSelectedAnswer] = useState(false);
   const [score, setScore] = useState(0);
   const [increaseValue, setIncreaseValue] = useState(5);
+  const [isGameOver, setIsGameOver] = useState(false);
 
   const categoryLength = 6;
   const firstInd = categoryLength * (currCategory - 1);
@@ -42,38 +44,58 @@ const Game = () => {
   };
 
   const nextLevelHandler = () => {
-    setCurrCategory(currCategory + 1);
+    if (currCategory === 7) {
+      setIsGameOver(true);
+    } else {
+      setCurrCategory(currCategory + 1);
+      setCorrectId(Math.floor(Math.random() * 6));
+      setIsSelectedAnswer(false);
+      setIsCorrectAnswer(false);
+      setIncreaseValue(5);
+    }
+  };
+
+  const newGameHandler = () => {
+    setIsGameOver(false);
+    setCurrCategory(1);
     setCorrectId(Math.floor(Math.random() * 6));
     setIsSelectedAnswer(false);
     setIsCorrectAnswer(false);
     setIncreaseValue(5);
+    setScore(0);
   };
 
   return (
     <>
     <Header currCategory={currCategory}
       score={score} />
-    <QuestionBlock
-      correctData={correctData}
-      isCorrectAnswer={isCorrectAnswer} />
-    <div className="row">
-      <AnswersList
-        currCategory={currCategory}
-        currData={currData}
-        clickHandler={AnswerItemClickHandler}
-        correctItem={correctName}
-        isCorrectAnswer={isCorrectAnswer}
-        makeSelected={makeSelected}
-      />
-      <ItemDescription
-        isSelectedAnswer={isSelectedAnswer}
-        selectedData={selectedItem}
+    {(isGameOver
+      && <CongratPage score={score}
+      clickHandler={newGameHandler} />)
+      || <>
+        <QuestionBlock
+          correctData={correctData}
+          isCorrectAnswer={isCorrectAnswer} />
+        <div className="row">
+          <AnswersList
+            currCategory={currCategory}
+            currData={currData}
+            clickHandler={AnswerItemClickHandler}
+            correctItem={correctName}
+            isCorrectAnswer={isCorrectAnswer}
+            makeSelected={makeSelected}
+          />
+          <ItemDescription
+            isSelectedAnswer={isSelectedAnswer}
+            selectedData={selectedItem}
+            />
+        </div>
+        <MainButton
+          isCorrectAnswer={isCorrectAnswer}
+          clickHandler={nextLevelHandler}
         />
-    </div>
-    <MainButton
-      isCorrectAnswer={isCorrectAnswer}
-      clickHandler={nextLevelHandler}
-    />
+      </>
+    }
     </>
   );
 };

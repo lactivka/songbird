@@ -1,5 +1,7 @@
 .description-block {
   min-height: 338.4px;
+  max-height: 338.4px;
+  overflow-y: auto;
   padding: 1rem;
   background-color: #303030;
   border: 1px solid #555;
@@ -7,6 +9,10 @@
 
 .description-data {
   margin-bottom: 20px;
+}
+
+.description-title {
+  font-size: 1.5rem;
 }
 
 h4 {

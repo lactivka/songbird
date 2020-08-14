@@ -5,7 +5,7 @@ import './MainButton.scss';
 
 const MainButton = ({ isCorrectAnswer, clickHandler }) => (
   isCorrectAnswer ? <button className="btn main-btn w-100 my-3" onClick={clickHandler}>Next level</button>
-    : <button className="btn btn-outline-light w-100 my-3" disabled>Next level</button>
+    : <button className="btn btn-outline-light w-100 my-3" disabled>Дальше</button>
 );
 
 MainButton.propTypes = {

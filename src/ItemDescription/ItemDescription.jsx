@@ -19,7 +19,7 @@ const ItemDescription = ({ isSelectedAnswer, selectedData }) => {
             <div className="description-data d-flex w-100">
               <img className="image-block" src={selectedData.image} alt={selectedData.translate} />
               <div className="content-block d-flex flex-column justify-content-around">
-                <h3 className="pb-2">{selectedData.name}</h3>
+                <h3 className="description-title pb-2">{selectedData.name}</h3>
                 <h4 className="pb-2">{selectedData.translate}</h4>
                 {/* <audio src={accordionAudio} controls className="w-auto"></audio> */}
                 <ReactAudioPlayer
