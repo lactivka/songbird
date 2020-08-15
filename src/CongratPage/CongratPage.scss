@@ -5,12 +5,13 @@ $height: 500;
 .winner-img {
   width: 50vw;
   max-width: 1000px;
+  min-width: 250px;
   height: auto;
 }
 
 .again-img {
-  width: 35vw;
-  max-width: 1000px;
+  width: 30vw;
+  max-width: 600px;
   height: auto;
 }
 
@@ -30,7 +31,7 @@ $box-shadow2: ();
   $box-shadow: $box-shadow,
                random($width)-$width / 2 + px
                random($height)-$height / 1.2 + px
-               hsl(random(360), 100, 50);
+               hsl(random(360), 1000, 50);
   $box-shadow2: $box-shadow2, 0 0 #fff
 }
 @mixin keyframes ($animationName) {
@@ -90,7 +91,6 @@ $box-shadow2: ();
 body {
   margin:0;
   padding:0;
-  // background: #000;
 }
 
 .pyro > .before, .pyro > .after {

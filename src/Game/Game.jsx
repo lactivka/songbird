@@ -76,6 +76,10 @@ const Game = () => {
         <QuestionBlock
           correctData={correctData}
           isCorrectAnswer={isCorrectAnswer} />
+        <MainButton
+          isCorrectAnswer={isCorrectAnswer}
+          clickHandler={nextLevelHandler}
+        />
         <div className="row">
           <AnswersList
             currCategory={currCategory}
@@ -90,10 +94,6 @@ const Game = () => {
             selectedData={selectedItem}
             />
         </div>
-        <MainButton
-          isCorrectAnswer={isCorrectAnswer}
-          clickHandler={nextLevelHandler}
-        />
       </>
     }
     </>

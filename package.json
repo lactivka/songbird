@@ -45,8 +45,8 @@
     "classnames": "^2.2.6",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
-    "react-audio-player": "^0.13.0",
     "react-dom": "^16.13.1",
+    "react-h5-audio-player": "^3.3.0",
     "react-hot-loader": "^4.12.21",
     "react-player": "^2.6.0"
   }

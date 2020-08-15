@@ -1,17 +1,10 @@
 import * as React from 'react';
 import { hot } from 'react-hot-loader';
 import PropTypes from 'prop-types';
-import ReactAudioPlayer from 'react-audio-player';
 import './ItemDescription.scss';
+import Player from '../Player/Player.jsx';
 
-// import maracasAudio from  `../assets/InstrumentSoundData/audio/${url}`;
-
-const ItemDescription = ({ isSelectedAnswer, selectedData }) => {
-// const url = '../assets/InstrumentSoundData/audio/accordion.mp3';
-// const audio = new Audio(url);
-// const clickHandler = () => audio.play();
-
-  return (
+const ItemDescription = ({ isSelectedAnswer, selectedData }) => (
     <div className="col-md-6">
       <div className="description-block rounded card ">
         { isSelectedAnswer
@@ -21,12 +14,7 @@ const ItemDescription = ({ isSelectedAnswer, selectedData }) => {
               <div className="content-block d-flex flex-column justify-content-around">
                 <h3 className="description-title pb-2">{selectedData.name}</h3>
                 <h4 className="pb-2">{selectedData.translate}</h4>
-                {/* <audio src={accordionAudio} controls className="w-auto"></audio> */}
-                <ReactAudioPlayer
-                  className="w-auto"
-                  src={selectedData.audio}
-                  controls
-                />
+                <Player source={selectedData.audio} />
               </div>
             </div>
             <span className="description-text flex-auto w-100 mt-3">{selectedData.text}</span>
@@ -39,8 +27,7 @@ const ItemDescription = ({ isSelectedAnswer, selectedData }) => {
         }
       </div>
     </div>
-  );
-};
+);
 
 ItemDescription.propTypes = {
   isSelectedAnswer: PropTypes.bool.isRequired,

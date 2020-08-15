@@ -4,8 +4,8 @@ import { hot } from 'react-hot-loader';
 import './MainButton.scss';
 
 const MainButton = ({ isCorrectAnswer, clickHandler }) => (
-  isCorrectAnswer ? <button className="btn main-btn w-100 my-3" onClick={clickHandler}>Next level</button>
-    : <button className="btn btn-outline-light w-100 my-3" disabled>Дальше</button>
+  isCorrectAnswer ? <button className="btn main-btn w-100 mb-4" onClick={clickHandler}>Дальше</button>
+    : <button className="btn btn-outline-light w-100 mb-4" disabled>Дальше</button>
 );
 
 MainButton.propTypes = {
