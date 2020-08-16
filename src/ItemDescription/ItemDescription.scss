@@ -9,14 +9,22 @@
 
 .description-data {
   margin-bottom: 20px;
+  & img {
+    margin-top: 10px;
+  }
 }
 
 .description-title {
   font-size: 1.5rem;
 }
 
-h4 {
+.description-translate {
   border-bottom: 1px solid #555;
+  font-size: 1rem;
+}
+
+.description-text {
+  text-align: justify;
 }
 
 @media(max-width: 992px) {

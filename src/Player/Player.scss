@@ -12,6 +12,9 @@
   & .rhap_progress-container {
     margin: 0 0 0 20px;
   }
+  & .rhap_progress-section {
+    flex-wrap: wrap;
+  }
   & .rhap_progress-filled {
     background-image: linear-gradient(to right, #2196F3, #4e4376, #2b5876, #2196F3);
   }
@@ -20,6 +23,16 @@
     font-size: 12px;
   }
   & .rhap_controls-section {
+    flex-wrap: wrap;
     padding: 0 0 0 55px;
+    margin: 0;
+  }
+  & .rhap_volume-controls {
+    width: 100%;
+  }
+  & .rhap_volume-button {
+    & svg {
+      color: #2196F3;
+    }
   }
 }

@@ -5,7 +5,9 @@ import './QuestionBlock.scss';
 import defaultImg from '../assets/InstrumentSoundData/images/defaultImg.png';
 import Player from '../Player/Player.jsx';
 
-const QuestionBlock = ({ correctData, isCorrectAnswer }) => (
+const QuestionBlock = ({
+  correctData, isCorrectAnswer, canUseEffect, useEffectOff,
+}) => (
   <div className="question-block rounded d-flex p-3 mb-4">
     <img className="image-block" src={(isCorrectAnswer && correctData.image) || defaultImg} alt={correctData.name}></img>
     <div className="content-block d-flex flex-column justify-content-around px-3">
@@ -13,14 +15,20 @@ const QuestionBlock = ({ correctData, isCorrectAnswer }) => (
         && <h3 className="pb-2">{correctData.name}</h3>)
         || <h3 className="pb-2">******</h3>
         }
-        <Player source={correctData.audio} />
+        <Player
+          source={correctData.audio}
+          isCorrectAnswer={isCorrectAnswer}
+          canUseEffect={canUseEffect}
+          useEffectOff={useEffectOff}
+        />
     </div>
-  </div>
-);
+  </div>);
 
 QuestionBlock.propTypes = {
   correctData: PropTypes.object.isRequired,
   isCorrectAnswer: PropTypes.bool.isRequired,
+  canUseEffect: PropTypes.bool.isRequired,
+  useEffectOff: PropTypes.func.isRequired,
 };
 
 export default hot(module)(QuestionBlock);

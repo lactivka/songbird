@@ -1,12 +1,23 @@
 import * as React from 'react';
+import { useEffect } from 'react';
 import { hot } from 'react-hot-loader';
 import PropTypes from 'prop-types';
 import winnerImg from '../assets/InstrumentSoundData/images/winner.png';
 import playAgainImg from '../assets/InstrumentSoundData/images/playAgain.png';
+import endOfGameAudio from '../assets/InstrumentSoundData/audio/endOfGame.mp3';
+import winnerAudio from '../assets/InstrumentSoundData/audio/winner.mp3';
 import './CongratPage.scss';
 
 const CongratPage = ({ score, clickHandler }) => {
   const maxScore = 35;
+  const audioEndOfGame = new Audio(endOfGameAudio);
+  const audioWinner = new Audio(winnerAudio);
+
+  useEffect(() => {
+    if (score === maxScore) audioWinner.play();
+    else audioEndOfGame.play();
+  });
+
   return (
     <div className="jumbotron congrat-container text-center py-4">
     {score === maxScore && <>

@@ -4,10 +4,15 @@ import PropTypes from 'prop-types';
 import { hot } from 'react-hot-loader';
 import './AnswersList.scss';
 import classNames from 'classnames';
+import correctAudio from '../assets/InstrumentSoundData/audio/correct.mp3';
+import wrongAudio from '../assets/InstrumentSoundData/audio/wrong.mp3';
 
 const AnswerItem = ({
   name, clickHandler, correctItem, isCorrectAnswer, makeSelected,
 }) => {
+  const audioCorrect = new Audio(correctAudio);
+  const audioWrong = new Audio(wrongAudio);
+
   const [isCorrect, setIsCorrect] = useState(false);
   const [isWrong, setIsWrong] = useState(false);
 
@@ -19,8 +24,13 @@ const AnswerItem = ({
 
   const itemClickHandler = (event) => {
     if (!isCorrectAnswer && !isCorrect && !isWrong) {
-      if (event.target.id === correctItem) setIsCorrect(true);
-      else setIsWrong(true);
+      if (event.target.id === correctItem) {
+        setIsCorrect(true);
+        audioCorrect.play();
+      } else {
+        setIsWrong(true);
+        audioWrong.play();
+      }
       clickHandler(event);
     }
     makeSelected(event);

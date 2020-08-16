@@ -17,6 +17,7 @@ const Game = () => {
   const [score, setScore] = useState(0);
   const [increaseValue, setIncreaseValue] = useState(5);
   const [isGameOver, setIsGameOver] = useState(false);
+  const [canUseEffect, setCanUseEffect] = useState(true);
 
   const categoryLength = 6;
   const firstInd = categoryLength * (currCategory - 1);
@@ -52,6 +53,7 @@ const Game = () => {
       setIsSelectedAnswer(false);
       setIsCorrectAnswer(false);
       setIncreaseValue(5);
+      setCanUseEffect(true);
     }
   };
 
@@ -62,7 +64,12 @@ const Game = () => {
     setIsSelectedAnswer(false);
     setIsCorrectAnswer(false);
     setIncreaseValue(5);
+    setCanUseEffect(true);
     setScore(0);
+  };
+
+  const useEffectOff = () => {
+    setCanUseEffect(false);
   };
 
   return (
@@ -75,7 +82,10 @@ const Game = () => {
       || <>
         <QuestionBlock
           correctData={correctData}
-          isCorrectAnswer={isCorrectAnswer} />
+          isCorrectAnswer={isCorrectAnswer}
+          canUseEffect={canUseEffect}
+          useEffectOff={useEffectOff}
+           />
         <MainButton
           isCorrectAnswer={isCorrectAnswer}
           clickHandler={nextLevelHandler}
@@ -91,7 +101,10 @@ const Game = () => {
           />
           <ItemDescription
             isSelectedAnswer={isSelectedAnswer}
+            isCorrectAnswer={isCorrectAnswer}
             selectedData={selectedItem}
+            canUseEffect={canUseEffect}
+            useEffectOff={useEffectOff}
             />
         </div>
       </>
