@@ -34,14 +34,12 @@ const CongratPage = ({ score, clickHandler }) => {
     <span className="congrat-text">Вы прошли викторину и набрали {score} из 35 возможных баллов</span>
     {score === maxScore && <img className="winner-img d-block m-auto" src={winnerImg} alt="You winner"/>}
     {score < maxScore
-      && <>
-        <img className="again-img d-block m-auto" src={playAgainImg} alt="Try again"/>
-        <button
-        className="btn btn-success w-100 mt-2"
-        onClick={clickHandler}
-        >Попробовать еще раз</button>
-      </>
+      && <img className="again-img d-block m-auto" src={playAgainImg} alt="Try again"/>
     }
+    <button
+      className="btn btn-success w-100 mt-2"
+      onClick={clickHandler}
+    >Попробовать еще раз</button>
   </div>
   );
 };

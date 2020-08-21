@@ -1,17 +1,13 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
-// const CopyPlugin = require('copy-webpack-plugin');
 
 const htmlPlugin = new HtmlWebPackPlugin({
   template: './public/index.html',
+  filename: 'index.html',
 });
+
 const hotModulePlugin = new webpack.HotModuleReplacementPlugin();
-// const copyPlugin = new CopyPlugin({
-//   patterns: [
-//     { from: './src/assets/', to: 'src/assets/' },
-//   ],
-// });
 
 module.exports = {
   entry: './src/index.jsx',
@@ -44,7 +40,7 @@ module.exports = {
   resolve: { extensions: ['*', '.js', '.jsx', '.png', '.jpg', '.mp3'] },
   output: {
     path: path.resolve(__dirname, 'dist/'),
-    publicPath: '/dist/',
+    // publicPath: '/dist/',
     filename: 'bundle.js',
   },
   devServer: {

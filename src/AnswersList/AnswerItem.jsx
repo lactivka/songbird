@@ -24,7 +24,7 @@ const AnswerItem = ({
 
   const itemClickHandler = (event) => {
     if (!isCorrectAnswer && !isCorrect && !isWrong) {
-      if (event.target.id === correctItem) {
+      if (event.currentTarget.id === correctItem) {
         setIsCorrect(true);
         audioCorrect.play();
       } else {

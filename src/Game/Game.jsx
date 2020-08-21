@@ -31,7 +31,7 @@ const Game = () => {
 
   const AnswerItemClickHandler = (event) => {
     setIsSelectedAnswer(true);
-    if (event.target.id === correctName && !isCorrectAnswer) {
+    if (event.currentTarget.id === correctName && !isCorrectAnswer) {
       setIsCorrectAnswer(true);
       setScore(score + increaseValue);
     } else {
@@ -40,7 +40,7 @@ const Game = () => {
   };
 
   const makeSelected = (event) => {
-    const selected = currData.filter((instrument) => instrument.name === event.target.id);
+    const selected = currData.filter((instrument) => instrument.name === event.currentTarget.id);
     setSelectedItem(selected[0]);
   };
 
