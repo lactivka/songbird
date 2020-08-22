@@ -37,7 +37,7 @@ const CongratPage = ({ score, clickHandler }) => {
       && <img className="again-img d-block m-auto" src={playAgainImg} alt="Try again"/>
     }
     <button
-      className="btn btn-success w-100 mt-2"
+      className="try-again-btn btn w-100 mt-2"
       onClick={clickHandler}
     >Попробовать еще раз</button>
   </div>

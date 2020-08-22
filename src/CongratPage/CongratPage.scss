@@ -24,6 +24,13 @@ $height: 500;
   font-size: 1.3rem;
 }
 
+.try-again-btn {
+  background-color: #2b5876;
+  &:hover {
+    background-color: #2196F3;
+  }
+}
+
 // Create the explosion...
 $box-shadow: ();
 $box-shadow2: ();

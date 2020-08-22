@@ -38,7 +38,7 @@ const AnswerItem = ({
 
   return (
     <li
-    className="answer-item p-3"
+    className="answer-item"
     id={name}
     onClick={itemClickHandler}>
       <span className={itemClass}></span>

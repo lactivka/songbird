@@ -2,15 +2,18 @@
   padding: 0;
   background: #303030;
   box-shadow: none;
+  outline: none;
   & .rhap_play-pause-button {
     background: #2196F3;
     border-radius: 50%;
+    outline: none;
       & svg {
         color: #303030;
       }
     }
   & .rhap_progress-container {
     margin: 0 0 0 20px;
+    outline: none;
   }
   & .rhap_progress-section {
     flex-wrap: wrap;
@@ -31,8 +34,12 @@
     width: 100%;
   }
   & .rhap_volume-button {
+    outline: none;
     & svg {
       color: #2196F3;
     }
+  }
+  & .rhap_volume-bar-area {
+    outline: none;
   }
 }
