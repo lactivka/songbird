@@ -6,7 +6,7 @@ import defaultImg from '../assets/InstrumentSoundData/images/defaultImg.png';
 import Player from '../Player/Player.jsx';
 
 const QuestionBlock = ({
-  correctData, isCorrectAnswer, canUseEffect, useEffectOff,
+  correctData, isCorrectAnswer, isSelectedAnswer, canUseEffect, useEffectOff,
 }) => (
   <div className="question-block rounded d-flex p-3 mb-4">
     <img className="image-block" src={(isCorrectAnswer && correctData.image) || defaultImg} alt={correctData.name}></img>
@@ -14,19 +14,27 @@ const QuestionBlock = ({
       {(isCorrectAnswer
         && <h3 className="pb-2">{correctData.name}</h3>)
         || <h3 className="pb-2">******</h3>
-        }
-        <Player
-          source={correctData.audio}
-          isCorrectAnswer={isCorrectAnswer}
-          canUseEffect={canUseEffect}
-          useEffectOff={useEffectOff}
-        />
+      }
+      {(isSelectedAnswer && <Player
+        source={correctData.audio}
+        isCorrectAnswer={isCorrectAnswer}
+        canUseEffect={canUseEffect}
+        useEffectOff={useEffectOff}
+      />)
+      || <Player
+      source={correctData.audio}
+      isCorrectAnswer={false}
+      isSelectedAnswer={false}
+      canUseEffect={canUseEffect}
+      useEffectOff={useEffectOff}
+    />}
     </div>
   </div>);
 
 QuestionBlock.propTypes = {
   correctData: PropTypes.object.isRequired,
   isCorrectAnswer: PropTypes.bool.isRequired,
+  isSelectedAnswer: PropTypes.bool.isRequired,
   canUseEffect: PropTypes.bool.isRequired,
   useEffectOff: PropTypes.func.isRequired,
 };

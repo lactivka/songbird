@@ -12,7 +12,7 @@ const Player = ({
   const audioEl = useRef();
 
   useEffect(() => {
-    if (isCorrectAnswer && canUseEffect) {
+    if ((isCorrectAnswer && canUseEffect)) {
       useEffectOff();
       audioEl.current.audio.current.pause();
       audioEl.current.audio.current.currentTime = 0;
@@ -24,7 +24,6 @@ const Player = ({
     autoPlay={false}
     showJumpControls={false}
     customAdditionalControls={[]}
-    autoPlayAfterSrcChange={false}
     customProgressBarSection={[
       RHAP_UI.VOLUME_CONTROLS,
       RHAP_UI.MAIN_CONTROLS,
@@ -38,6 +37,7 @@ const Player = ({
     ]}
     src={source}
     ref={audioEl}
+    onAbort={() => audioEl.current.audio.current.pause()}
   />
   );
 };

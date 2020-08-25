@@ -48,9 +48,10 @@ const Game = () => {
     if (currCategory === 7) {
       setIsGameOver(true);
     } else {
+      setIsSelectedAnswer(false);
       setCurrCategory(currCategory + 1);
       setCorrectId(Math.floor(Math.random() * 6));
-      setIsSelectedAnswer(false);
+
       setIsCorrectAnswer(false);
       setIncreaseValue(5);
       setCanUseEffect(true);
@@ -83,6 +84,7 @@ const Game = () => {
         <QuestionBlock
           correctData={correctData}
           isCorrectAnswer={isCorrectAnswer}
+          isSelectedAnswer={isSelectedAnswer}
           canUseEffect={canUseEffect}
           useEffectOff={useEffectOff}
            />
