@@ -1,0 +1,25 @@
+.category-list {
+  background-color: #2b5876;
+  border-radius: .25rem;
+  & .category-item {
+    list-style: none;
+    padding: 5px;
+    flex: auto;
+    background-color: #2b5876;
+    text-align: center;
+    border-radius: .25rem;
+    &.current {
+      background-color: #2196F3;
+    }
+  }
+}
+
+.header-label {
+  font-family: 'Rouge Script', cursive;
+  font-size: 40px;
+}
+
+.score {
+  font-size: 19px;
+  padding-bottom: 5px;
+}
